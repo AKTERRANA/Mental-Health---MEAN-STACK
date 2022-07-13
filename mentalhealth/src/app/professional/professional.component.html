@@ -1,0 +1,50 @@
+<div class="flex-column">
+<form [formGroup]="myForm" (ngSubmit)="onSubmit()" *ngIf="toggleNew" style="padding: 20px;">
+    <div class="form-row">
+      <div class="form-group col-md-6">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+      <div class="form-group col-md-6">
+        <label for="age">Age</label>
+        <input type="number" class="form-control" formControlName="age">
+      </div>
+    </div>
+    <div class="form-row">
+    <div class="form-group col-md-6">
+        <label for="newPatients">New Patient</label>
+        <select formControlName="newPatients" class="form-control">
+          <option value="">Choose</option>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+        </select>
+      </div>
+      <div class="form-group col-md-6">
+        <label for="conditions">Conditions</label>
+        <select formControlName="conditions" class="form-control">
+          <option value="">Choose</option>
+          <option value="serious">Serious</option>
+          <option value="normal">Normal</option>
+        </select>
+      </div>
+    </div>
+    <button type="submit" class="btn btn-primary">Create New</button> <br>
+    <button  (click)="toggleNewBtn()" class="bun btn-danger mt-3">Close</button>
+  </form>
+  <button *ngIf="!toggleNew" (click)="toggleNewBtn()" class="bun btn-primary float-right">Create New Professional</button>
+
+  <div style="padding: 3vw;padding-top: 40px!important;" class="flex-row" *ngIf="professionals.length>0" >
+    <div  class="d-flex flex-row" *ngFor="let item of professionals">
+    <div class="card" style="width: 18rem;">
+        <div style="position:relative" class="card-body">
+            <img src="https://cdn.pixabay.com/photo/2014/04/03/11/50/medical-312324_960_720.png" height="80px" width="80px" alt="">
+          <h5 class="card-title"><b>Name :</b>{{item.name}}</h5>
+          <h6 class="card-subtitle mb-2 text-muted"><b>Age :</b>{{item.age}}</h6>
+          <p class="card-text"><b>Fees : </b>{{item.fees}}</p>
+          <p class="card-text"><b>New Patient : </b>{{item.newPatient}}</p>
+          <p class="card-text"><b>Conditions : </b>{{item.conditions}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

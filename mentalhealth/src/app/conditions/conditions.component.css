@@ -1,0 +1,22 @@
+.container-main{
+    margin-top: 20px!important;
+    width: 60%;
+    margin: auto;
+}
+.container-main h2{
+    padding: 5px;
+    background-color: #000066;
+    text-align: center;
+    box-shadow: 0 12px 7px -4px gray;
+    border-radius: 7px;
+    color: #fff;
+}
+@media screen and (max-width: 680px) {
+    .container-main{
+        width: 90%;
+        margin: auto;
+    }
+    .container-main h2{
+        font-size: 18px;
+    }
+  }
